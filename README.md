@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# Frasier.dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, minimal landing page built with React, TypeScript, and Tailwind CSS. Features a sleek dark theme with red accents, smooth animations, and a video game-style loading experience.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a personal portfolio landing page that serves as a hub to connect with me across different platforms. The site showcases a professional, sophisticated design with smooth transitions and engaging animations.
 
-## React Compiler
+## Features
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- Modern dark theme with red accent colors
+- Video game-style loading screen with animated progress bar
+- Smooth entry animations for all content
+- Reusable card components for easy customization
+- Responsive grid layout that works on mobile and desktop
+- Glassmorphism design with subtle blur effects
+- Fast performance built with Vite and optimized React
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 18 with TypeScript
+- Vite for build tooling
+- Tailwind CSS for styling
+- Lucide React for icons
+- Bun as package manager
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/
+│   ├── Background.tsx      - Decorative grid background
+│   ├── Footer.tsx          - Footer with copyright
+│   ├── Header.tsx          - Title and intro section
+│   ├── LinkCard.tsx        - Reusable card component
+│   ├── LoadingBar.tsx      - Loading screen overlay
+│   └── index.ts            - Component exports
+├── consts/                 - Constants and data
+├── App.tsx                 - Main application
+├── index.css               - Global styles and animations
+└── main.tsx                - Entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Install dependencies:
+```bash
+bun install
 ```
+
+Start development server:
+```bash
+bun run dev
+```
+
+Build for production:
+```bash
+bun run build
+```
+
+## Customization
+
+### Update Links
+
+Edit the links in `src/consts` to point to your own social profiles and portfolio.
+
+### Change Colors
+
+The site uses Tailwind CSS color classes. To change the color scheme:
+- Update the red color classes in component files
+- Modify the LoadingBar and gradient colors
+- Update accent colors in Header and Footer
+
+### Add New Links
+
+Add entries to the links array in `src/consts` with:
+- `href`: URL to the link
+- `title`: Display name
+- `description`: Short description
+- `icon`: Lucide React icon component
+- `delay`: Animation delay in milliseconds
+
+## Performance
+
+- Built with Vite for instant HMR during development
+- Optimized production builds with code splitting
+- Smooth 60fps animations with GPU acceleration
+- Lightweight bundle size
+
+## Browser Support
+
+Works on all modern browsers including Chrome, Firefox, Safari, and Edge.
